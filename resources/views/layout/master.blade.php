@@ -14,18 +14,18 @@
 <body>
     <div class="container-fluid">
         <div class="row content">
-            <div class="col-sm-3 p-4">
+            <div class="col-sm-2 p-4">
                 <h4>Manager User</h4>
                 <div class="nav flex-column nav-pills pb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link" href="{{route('users.index')}}" role="tab" aria-controls="v-pills-profile" aria-selected="false">List Users</a>
-                    <a class="nav-link" href="{{route('users.create')}}" role="tab" aria-controls="v-pills-messages" aria-selected="false">Create Users</a>
+                    <a class="nav-link" href="{{ route('users.index') }}" role="tab" aria-controls="v-pills-profile" aria-selected="false">List Users</a>
+                    <a class="nav-link" href="{{ route('users.create') }}" role="tab" aria-controls="v-pills-messages" aria-selected="false">Create Users</a>
                 </div>
-                <form class="form-inline">
+                <form>
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Search</button>
                 </form>
             </div>
-            <div class="col-sm-9 p-4 border-left">
+            <div class="col-sm-10 border-left set-padding">
                 @yield('content')
             </div>
         </div>
@@ -34,5 +34,6 @@
     <footer class="container-fluid">
         <p class="hapo-erp-footer">Haposoft</p>
     </footer>
+    <script type="text/javascript" src="{{ asset("js/myjs.js") }}"></script>
 </body>
 </html>

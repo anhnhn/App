@@ -1,34 +1,42 @@
 @extends('layout.master')
 @section('content')
     <h4 class="pb-2 pt-2">Form User</h4>
-    <form method="POST" action="{{ route('users.store')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data" class="border col-sm-7">
         @csrf
-        <div class="form-group">
+        <div class="form-group pt-2">
             <label for="name">User Name</label>
-            <input class="form-control col-sm-6" name="name" id="name">
+            <input class="form-control" name="name" id="name">
+            @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input class="form-control col-sm-6" name="email" id="email">
+            <input class="form-control" name="email" id="email">
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-group">
-            <label for="address">Address</label>
-            <input class="form-control col-sm-6" name="address" id="address">
+            <label for="address">Date of birth</label>
+            <input type="date" class="form-control" name="dOB" id="dOB">
+            @error('dOB')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
-        <div class="form-group">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="gender" value="1" checked>
-                <label class="form-check-label" for="boy">
-                    Boy
-                </label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="gender" value="0">
-                <label class="form-check-label" for="girl">
-                    girl
-                </label>
+
+        <div class="input-group">
+            <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" id="avatar" name="avatar">
+                <label class="custom-file-label">Choose avatar</label>
+                @error('avatar')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+
+        <div class="pb-2">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
     </form>
 @endsection
